@@ -1,0 +1,12 @@
+from twilio.rest import Client
+# Your Account SID from twilio.com/console
+account_sid = "your account sid"
+# Your Auth Token from twilio.com/console
+auth_token  = "your token"
+client = Client(account_sid, auth_token)
+message = client.messages.create(
+# 这里中国的号码前面需要加86
+to="+接收者的号码",
+from_="+twilio给你的号码 ",
+body="Hello from Python!")
+print(message.sid)
